@@ -53,3 +53,9 @@ $ python3 cibersec.py
 * Auto create text channel named 'Command History' under category 'CiberSec'
 * Handling +2000 chars outputs
 * Handling changing/'animated' outputs
+
+# Developer
+**WodX**
+* Github: [WodXTV](https://github.com/wodxtv)
+* Discord: [wodx#0666](http://discordapp.com)
+* Twitter: [@WodXOfficial](https://twitter.com/wodxofficial)
