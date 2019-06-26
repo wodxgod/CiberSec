@@ -12,34 +12,28 @@ $ git clone https://github.com/WodxTV/CiberSec.git
 
 Python 3 has to be installed on the Linux machine in order to make the bot work.
 
-Install Python 3.7 via:
+**Install Python 3.7 via:**
 ```bash
 $ sudo apt update
 $ sudo apt install python3.7
 ```
 PIP (a package-management system) for Python 3.7 also has to be installed.
 
-Install PIP via:
+**Install PIP via:**
 ```bash
 $ sudo apt update
 $ sudo apt install python3-pip
 ```
 discord.py, which is an API/a module for bot development in Python, is needed in order to make the bot run.
 
-Install discord.py module via:
+**Install discord.py via:**
 ```bash
 $ pip3 install discord
 ```
 
-When you have installed Python 3, discord.py and PIP , create a new client bot via:
-```
-https://discordapp.com/developers/applications/
-```
+When you have installed Python 3, discord.py and PIP, create a new client bot using [this link](https://discordapp.com/developers/applications/)
 
-Copy the client ID of the bot you have created, and paste this URL into your browser to invite the bot to your Discord server:
-```
-https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_HERE&scope=bot&permissions=8
-```
+Copy the client ID of the bot you have created, and paste [this link](https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_HERE&scope=bot&permissions=8) into your browser and change the client ID, to invite the bot to your Discord server:
 
 
 # Running the bot
