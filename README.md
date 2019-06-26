@@ -25,7 +25,7 @@ Install PIP by executing this bash command:
 $ sudo apt update
 $ sudo apt install python3-pip
 ```
-Installing the Discord Python module:
+Installing discord.py module:
 ```bash
 $ pip3 install discord
 ```
