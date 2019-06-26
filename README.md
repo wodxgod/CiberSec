@@ -47,10 +47,7 @@ I recommend you running the bot on a penetration testing Linux distribution like
 
 1. Edit the config in ``./config/config.json``
 
-2. Start the bot via:
-```bash
-$ python3 cibersec.py
-```
+2. Start the bot via ``$ python3 cibersec.py``
 
 
 # Work in progress
