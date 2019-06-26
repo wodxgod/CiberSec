@@ -3,8 +3,6 @@ This bot is mainly focused on cyber security.
 
 This bot works like a command shell. You simply type in a Linux shell command, and it'll retun an output.
 
-Recommened Linux distributions: Kali Linux and Parrot OS
-
 # Installation
 Python 3 has to be installed on the Linux machine in order to make this bot work
 
@@ -33,4 +31,12 @@ https://discordapp.com/developers/applications/
 Copy the client ID and paste this command into your browser to invite the bot to your Discord server:
 ```
 https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_HERE&scope=bot&permissions=8
+```
+
+# Running the bot
+I recommend you running the bot on a penetration testing Linux distribution like Kali Linux or Parrot OS, as these two distributions has a lot of pre-installed penetration testing/hacking tools installed.
+
+Start the bot by using the Python bash command:
+```bash
+$ python3 ciberbot.py
 ```
