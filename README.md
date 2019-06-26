@@ -31,9 +31,9 @@ discord.py, which is an API/a module for bot development in Python, is needed in
 $ pip3 install discord
 ```
 
-When you have installed Python 3, discord.py and PIP, create a new client bot using [this link](https://discordapp.com/developers/applications/).
+When you have installed Python 3, discord.py and PIP, create a new client bot using [this URL](https://discordapp.com/developers/applications/).
 
-Copy the client ID of the bot you have created, and paste [this link](https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_HERE&scope=bot&permissions=8) into your browser and change the client ID, to invite the bot to your Discord server:
+Copy the client ID of the bot you have created, and paste [this URL](https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_HERE&scope=bot&permissions=8) into your browser and change the client ID in the URL, to invite the bot to your Discord server:
 
 
 # Running the bot
