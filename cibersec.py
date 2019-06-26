@@ -1,13 +1,6 @@
 #Developed by wodx @ 26-06-2019
 import discord, subprocess, json, os
 
-#TODO: 
-# Make bot auto generate category "CiberSec"
-# Make bot auto create role "CiberSec"
-# Make bot auto generate "Terminal" channel
-# Make bot auto generate "Command History" channel
-# Make bot auto set permissions for "CiberSec" category (private channel for "CiberSec" role)
-
 #These commands are blacklisted, as they're pretty useless in this project.
 BLACKLISTED_COMMANDS = [
     'nano', 
