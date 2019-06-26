@@ -25,8 +25,12 @@ Install PIP by executing this bash command:
 $ sudo apt update
 $ sudo apt install python3-pip
 ```
+Installing the Discord Python module:
+```bash
+$ pip3 install discord
+```
 
-When you've both Python 3 and PIP installed, create a new client bot using this link:
+When you've both Python 3, discord.py and PIP installed, create a new client bot via:
 ```
 https://discordapp.com/developers/applications/
 ```
