@@ -45,3 +45,11 @@ Start the bot by using this Python bash command:
 ```bash
 $ python3 cibersec.py
 ```
+
+# Work in progress
+* Auto create role 'CiberSec'
+* Auto create category named 'CiberSec'
+* Auto create text channel named 'Terminal' under category 'CiberSec'
+* Auto create text channel named 'Command History' under category 'CiberSec'
+* Handling +2000 chars outputs
+* Handling changing/'animated' outputs
