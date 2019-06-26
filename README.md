@@ -53,6 +53,7 @@ $ python3 cibersec.py
 * Auto create text channel named 'Command History' under category 'CiberSec'
 * Handling +2000 chars outputs
 * Handling changing/'animated' outputs
+* Design a logo for the bot
 
 # Developer
 **WodX**
