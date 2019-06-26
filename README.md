@@ -55,6 +55,7 @@ $ python3 cibersec.py
 * Auto create category named 'CiberSec'
 * Auto create text channel named 'Terminal' under category 'CiberSec'
 * Auto create text channel named 'Command History' under category 'CiberSec'
+* Auto set permissions for 'CiberSec' category (private channel for 'CiberSec' role only)
 * Handling changing/'animated' outputs
 * Design a logo for the bot
 
