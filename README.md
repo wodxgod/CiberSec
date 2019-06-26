@@ -36,5 +36,5 @@ I recommend you running the bot on a penetration testing Linux distribution like
 
 Start the bot by using this Python bash command:
 ```bash
-$ python3 ciberbot.py
+$ python3 cibersec.py
 ```
