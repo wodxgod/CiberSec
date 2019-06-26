@@ -47,7 +47,9 @@ https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_HERE&scope=bot&permi
 # Running the bot
 I recommend you running the bot on a penetration testing Linux distribution like **Kali Linux** or **Parrot OS**, as they have a lot of pre-installed penetration testing/hacking tools installed.
 
-Start the bot via:
+1. Edit the config in ``./config/config.json``
+
+2. Start the bot via:
 ```bash
 $ python3 cibersec.py
 ```
