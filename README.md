@@ -63,4 +63,4 @@ $ python3 cibersec.py
 **WodX**
 * Github: [WodXTV](https://github.com/wodxtv)
 * Discord: [wodx#0666](http://discordapp.com)
-* Twitter: [@WodXOfficial](https://twitter.com/wodxofficial)
+* Twitter: [@wodxofficial](https://twitter.com/wodxofficial)
