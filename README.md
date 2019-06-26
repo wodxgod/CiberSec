@@ -1,1 +1,1 @@
-# Discord-Hack-Week
+# Discord Hack Week bot
