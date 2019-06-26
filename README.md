@@ -1,7 +1,5 @@
 # Discord Hack Week bot
-This bot is mainly focused on cyber security.
-
-This bot works like a command shell. You simply type in a Linux shell command, and it'll retun an output.
+This bot is mainly focused on cyber security. The bot works like a command shell. You simply type in a Linux shell command, and the bot will return the output from the executed command.
 
 # Installation
 Python 3 has to be installed on the Linux machine in order to make this bot work
