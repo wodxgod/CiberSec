@@ -54,6 +54,7 @@ I recommend you running the bot on a penetration testing Linux distribution like
 * Create argument(s) for 'clear' command. E.g. 'clear history' to clear the command history
 * Add rich presence for the bot
 * Create console menu (Start bot, view repository, show credits etc.)
+* (Built in tools)
 
 
 # Developer
