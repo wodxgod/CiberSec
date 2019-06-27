@@ -1,13 +1,19 @@
 #Developed by wodx @ 26-06-2019
+<<<<<<< HEAD
+import discord, subprocess, json, os, textwrap
+=======
 import discord, subprocess, json, os
+>>>>>>> 881e78b1019d016c63aa9adc483a0272a7594565
 
 #These commands are blacklisted, as they're pretty useless in this project.
 BLACKLISTED_COMMANDS = [
     'nano', 
-    'leafpad'
+    'leafpad',
+    'wireshark',
+    'zenmap'
 ]
 
-#Operators which's used to run multiple commands at once
+#Operators which are used to run multiple commands at once.
 OPERATORS = [
     ';',
     '&&',
@@ -28,70 +34,95 @@ def main():
         print('[-] CiberSec has to be run on a Linux machine.')
         exit()
 
-    cibersec = discord.ext.Bot(command_prefix = '')
+    print('[*] Starting CiberSec bot...')
+
+    client = discord.Client()
 
     #Ready event
-    @cibersec.event
+    @client.event
     async def on_ready():
-        print('[*] CiberSec is ready to use.')
+        print('[+] CiberSec is ready to use.')
+        print('CiberSec - Cyber security bot')
+        print('By: wodx')
+        print('Version: 1.1')
+        print('Made for Discord Hack Week.')
+        await client.user.edit(username='CiberSec')
 
     #Message event
-    @cibersec.event
-    async def on_message(message):
-        if message.author == cibersec.user:
+    @client.event
+    async def on_message(event_message):
+        if event_message.author == client.user:
             return
         
-        channel = message.channel
+        event_channel = event_message.channel
         try:
-            if channel.id == int(CONFIG['config']['terminal']):
-                command = message.content
+            try:
+                if event_channel.id == int(CONFIG['config']['terminal']):
+                    command = str(event_message.content)
 
-                #Command analyzing
-                for operator in OPERATORS:
-                    if ' %s ' % (operator) in command:
-                        command_split = command.split(' %s ' % (operator))
-                        for cmd in command_split:
-                            for cmd_blacklisted in BLACKLISTED_COMMANDS:
-                                if cmd.startsWith(cmd_blacklisted):
-                                    await cibersec.send_message(channel, 'Error! Command was blacklisted.')
-                                    return
+                    #Command analyzing
+                    for operator in OPERATORS:
+                        if ' %s ' % (operator) in command:
+                            command_split = command.split(' %s ' % (operator))
+                            for cmd in command_split:
+                                for cmd_blacklisted in BLACKLISTED_COMMANDS:
+                                    if cmd.startswith(cmd_blacklisted):
+                                        await event_channel.send('**[-]** The executed command contains a blacklisted command.')
+                                        return
 
-                #Clear command
-                if command.startsWith('clear'):
-                    async for msg in cibersec.logs_from(channel):
-                        await cibersec.delete_message(msg)
-                    await cibersec.send_message(channel, '[+] Shell was cleared!')
-                    return
+                    #Clear command
+                    if command.lower() == 'clear':
+                        await event_channel.purge(limit=100)
+                        await event_channel.send('**[+]** Terminal was cleared!')
+                        return
 
-                #Running the shell command
-                process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+                    #Change directory command
+                    if 'cd ' in command:
+                        command_split = command.split(' ')
+                        for i, cmd in enumerate(command_split):
+                            if command.lower() == 'cd':
+                                path = command_split[i + 1]
+                                break
+                        os.chdir(path)
+                        output = 'Changed directory to %s' % (os.getcwd())
+                        await event_channel.send('```\n' + output + '\n```')
+                        return
 
-                #Command output
-                output = process.stdout.read() + process.stderr.read()
-                if not output:
-                    output = '[-] Not output recieved.'
+                    #Executing the shell command
+                    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
 
-                #Adding command to history
-                try:
-                    command_history_channel = cibersec.get_channel(int(CONFIG['config']['history']))
+                    #Command output
+                    output = process.stdout.read() + process.stderr.read()
+                    output = output.decode()
+
+                    #Adding command to history
                     try:
-                        msg = cibersec.logs_from(command_history_channel)[0]
-                        msg_content = msg.content
-                        msg_content += command + '\n'
-                        await cibersec.edit_message(msg, msg_content)
+                        await client.get_channel(int(CONFIG['config']['history'])).send('``\n' + command + '\n``')
                     except:
-                        await cibersec.send_message(command_history_channel, command + '\n')
+                        await event_channel.send('**[-]** Command history channel not found!')
+                        return
 
-                except:
-                    await cibersec.send_message(channel, '[-] Command history channel not found!')
-                    return
+                    #Handling +2000 chars output
+                    if len(output) >= 2000:
+                        await event_channel.send('**[*]** Output is more than 2000 characters long. Please wait while all data has been transferred.')
+                        for output_piece in [output[i * 1000 : i * 1000 + 1000] for i, _ in enumerate(output[::1000])]:
+                            await event_channel.send('```\n' + output_piece + '\n```')
+                        await event_channel.send('**[+]** All data has been transferred.')
 
-                #Returning the output
-                await cibersec.send_message(channel, output)
-        except:
-            await cibersec.send_message(channel, output)
+                    else:
+                        if output.strip():
+                            await event_channel.send('```\n' + output + '\n```')
+                        else:
+                            await event_channel.send('**[*]** No output recieved.')
 
-    cibersec.run(CONFIG['config']['token'])
+            except discord.DiscordException:
+                await event_channel.send('**[-]** Terminal channel not found!')
+
+        except Exception as e:
+            await event_channel.send('**[-]** An error occurred: %s' % (e))
+            exit()
+
+    client.run(CONFIG['config']['token'])
 
 if __name__ == '__main__':
     main()
