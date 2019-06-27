@@ -1,9 +1,5 @@
 #Developed by wodx @ 26-06-2019
-<<<<<<< HEAD
 import discord, subprocess, json, os, textwrap
-=======
-import discord, subprocess, json, os
->>>>>>> 881e78b1019d016c63aa9adc483a0272a7594565
 
 #These commands are blacklisted, as they're pretty useless in this project.
 BLACKLISTED_COMMANDS = [
