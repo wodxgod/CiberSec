@@ -63,4 +63,4 @@ I recommend you running the bot on a penetration testing Linux distribution like
 * Discord: [wodx#0666](http://discordapp.com)
 * Twitter: [@wodxofficial](https://twitter.com/wodxofficial)
 
-*If I had more time, I'd develop something more advanced than a built in command shell on a Discord server.*
+*If I had more time, I'd develop something more advanced than a built-in command shell on a Discord server.*
