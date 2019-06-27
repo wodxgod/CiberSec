@@ -17,14 +17,14 @@ $ sudo apt install git
 $ git clone https://github.com/WodxTV/CiberSec.git
 ```
 
-Python 3 has to be installed on the Linux machine in order to make the bot work.
+Python 3 has to be installed, in order to be able to run the code.
 
 **Install Python 3.7 via:**
 ```bash
 $ sudo apt update
 $ sudo apt install python3.7
 ```
-PIP (a package-management system) for Python 3.7 also has to be installed.
+PIP (a package-management system) for Python 3.7 also has to be installed, in order to install the Discord API/module for Python.
 
 **Install PIP via:**
 ```bash
