@@ -43,14 +43,12 @@ After installing Python 3, discord.py and PIP, create a new client bot by using 
 
 Copy the client ID of the bot you have created, and paste [this link](https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_HERE&scope=bot&permissions=8) into your browser and change 'CLIENT_ID_HERE' in the URL to your new bot's client ID, to invite it to your Discord server.
 
-
 # Running the bot
 I recommend you running the bot on a penetration testing Linux distribution like **Kali Linux** or **Parrot OS**, as they have a lot of pre-installed penetration testing/hacking tools installed.
 
 1. Edit the config in ``./config/config.json``
 
 2. Start the bot via ``$ python3 cibersec.py``
-
 
 # Work in progress
 * Auto create category named 'CiberSec'
@@ -64,13 +62,10 @@ I recommend you running the bot on a penetration testing Linux distribution like
 * Create console menu (Start bot, view repository, show credits etc.)
 * (Built in tools)
 
-
 # Developer
 **WodX**
 * Github: [WodXTV](https://github.com/wodxtv)
 * Discord: [wodx#0666](http://discordapp.com)
 * Twitter: [@wodxofficial](https://twitter.com/wodxofficial)
-
-
 
 **wodx@root:\~/CiberSec:~$** echo *If I had more time, I'd develop something more advanced than a built-in command shell for Discord servers.* > something.txt
