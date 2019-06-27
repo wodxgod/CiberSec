@@ -109,7 +109,7 @@ def main():
                         if output.strip():
                             await event_channel.send('```\n' + output + '\n```')
                         else:
-                            await event_channel.send('**[*]** No output recieved.')
+                            await event_channel.send('**[*]** No output received.')
 
             except discord.DiscordException:
                 await event_channel.send('**[-]** Terminal channel not found!')
