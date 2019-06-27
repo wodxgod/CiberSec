@@ -4,7 +4,7 @@
 **CiberSec** is a simple bot that is mainly focused on cyber security. The bot works like a command shell - You simply type in a Linux shell command, and the bot will return the output from the executed command.
 
 # Installation
-In order to clone GitHub reposiroty, it's necessary to install git.
+In order to clone GitHub repositories, it's necessary to install git.
 
 **Install git via:**
 ```bash
