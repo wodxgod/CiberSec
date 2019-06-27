@@ -1,4 +1,4 @@
-# Discord Hack Week bot submission
+# Discord Hack Week Productivity Bot Submission
 ![alt text](https://cdn-images-1.medium.com/max/2600/1*lh6NS8hx0pu5mlZeSqnu5w.jpeg)
 *[Source](https://blog.discordapp.com/discord-community-hack-week-build-and-create-alongside-us-6b2a7b7bba33)*
 
