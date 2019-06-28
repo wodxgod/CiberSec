@@ -3,6 +3,8 @@
 
 **CiberSec** is a simple bot that is mainly focused on cyber security. The bot works like a command shell - You simply type in a Linux shell command, and the bot will return the output from the executed command.
 
+If I had more time, I'd develop something more advanced than a built-in command shell for Discord servers.
+
 # Installation
 In order to clone GitHub repositories, it's necessary to install git.
 
@@ -58,8 +60,6 @@ I recommend you running the bot on a penetration testing Linux distribution like
 * Github: [WodXTV](https://github.com/wodxtv)
 * Discord: [wodx#0666](http://discordapp.com)
 * Twitter: [@wodxofficial](https://twitter.com/wodxofficial)
-
-**wodx@root:\~/CiberSec:~$** echo *If I had more time, I'd develop something more advanced than a built-in command shell for Discord servers.* > something.txt
 
 ![alt text](https://cdn-images-1.medium.com/max/2600/1*lh6NS8hx0pu5mlZeSqnu5w.jpeg)
 Discord Hack Week 2019 Artwork. *[Source](https://blog.discordapp.com/discord-community-hack-week-build-and-create-alongside-us-6b2a7b7bba33)*
