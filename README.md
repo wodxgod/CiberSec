@@ -54,7 +54,7 @@ I recommend you running the bot on a penetration testing Linux distribution like
 
 3. Start the bot via ``$ python3 cibersec.py``
 
-4. Create a new role named 'CiberSec User' and assign the role.
+4. Create a new role named 'CiberSec User' and assign the role
 
 # Developer
 **WodX**
