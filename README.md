@@ -54,15 +54,6 @@ I recommend you running the bot on a penetration testing Linux distribution like
 
 4. Create a new role named 'CiberSec User' and assign the role.
 
-# Work in progress
-* Auto create category named 'CiberSec'
-* Auto create text channel named 'Terminal' under category 'CiberSec'
-* Auto create role named 'CiberSec User'
-* Auto create text channel named 'Command History' under category 'CiberSec'
-* Auto set permissions for 'CiberSec' category (private channel for 'CiberSec User' role only)
-* Design a logo for the bot
-* Create console menu (Start bot, view repository, show credits etc.)
-
 # Developer
 **WodX**
 * Github: [WodXTV](https://github.com/wodxtv)
