@@ -45,9 +45,9 @@ def main():
         exit()
 
     #OS check
-    #if not os.name == 'posix':
-    #    print('[-] CiberSec has to be run on a Linux machine.')
-    #    exit()
+    if not os.name == 'posix':
+        print('[-] CiberSec has to be run on a Linux machine.')
+        exit()
 
     print('[*] Starting CiberSec bot...')
 
