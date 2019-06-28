@@ -12,7 +12,6 @@ BLACKLISTED_COMMANDS = [
 #Operators which are used to run multiple bash commands at once.
 OPERATORS = [';', '&&', '||']
 
-global last_process
 last_process = None
 
 CONFIG = json.loads(open('config/config.json').read())
@@ -49,6 +48,7 @@ def main():
 
     print('[*] Starting CiberSec bot...')
 
+    #Creating new client
     client = discord.Client()
 
     #Ready event
@@ -145,7 +145,7 @@ def main():
                     last_process = None
                     await event_channel.send(embed=success('Process canceled.'))
                 else:
-                    await event_channel.send(embed=warning('Not processes are running.'))
+                    await event_channel.send(embed=warning('Not process is running.'))
                 return
                             
             #Executing the shell command
