@@ -9,7 +9,7 @@ BLACKLISTED_COMMANDS = [
     'zenmap'
 ]
 
-#Operators which are used to run multiple commands at once.
+#Operators which are used to run multiple bash commands at once.
 OPERATORS = [
     ';',
     '&&',
@@ -17,6 +17,15 @@ OPERATORS = [
 ]
 
 CONFIG = json.loads(open('config/config.json').read())
+
+def error(message):
+    return discord.Embed(title='**ERROR**', description=message, colour=discord.Colour.red())
+
+def warning(message):
+    return discord.Embed(title='**WARNING**', description=message, colour=0xe7e33c)
+
+def success(message):
+    return discord.Embed(title='**SUCCESS**', description=message, colour=discord.Colour.green())
 
 def main():
     #Bot token check
@@ -44,6 +53,11 @@ def main():
         print('Made for Discord Hack Week.')
         await client.user.edit(username='CiberSec')
 
+    @client.event
+    async def on_member_join(member):
+        if member.user == client.user:
+            print('test')
+
     #Message event
     @client.event
     async def on_message(event_message):
@@ -63,27 +77,35 @@ def main():
                             for cmd in command_split:
                                 for cmd_blacklisted in BLACKLISTED_COMMANDS:
                                     if cmd.startswith(cmd_blacklisted):
-                                        await event_channel.send('**[-]** The executed command contains a blacklisted command.')
+                                        await event_channel.send(embed=error('The executed command contains a blacklisted command.'))
                                         return
+                    for cmd_blacklisted in BLACKLISTED_COMMANDS:
+                        if command.lower().startswith(cmd_blacklisted):
+                            await event_channel.send(embed=error('The executed command is blacklisted.'))
+                            return
 
                     #Clear command
-                    if command.lower() == 'clear':
-                        await event_channel.purge(limit=100)
-                        await event_channel.send('**[+]** Terminal was cleared!')
+                    if 'clear' in command.lower():
+                        if command.lower() == 'clear history':
+                            await client.get_channel(int(CONFIG['config']['history'])).purge(limit=1000)
+                            await event_channel.send(embed=success('Command history has been cleared.'))
+                        else:
+                            await event_channel.purge(limit=1000)
+                            await event_channel.send(embed=success('Terminal has been cleared.'))
                         return
 
                     #Change directory command
                     if 'cd ' in command:
                         command_split = command.split(' ')
                         for i, cmd in enumerate(command_split):
-                            if command.lower() == 'cd':
-                                path = command_split[i + 1]
-                                break
-                        os.chdir(path)
-                        output = 'Changed directory to %s' % (os.getcwd())
-                        await event_channel.send('```\n' + output + '\n```')
-                        return
-
+                            if cmd == ' ':
+                                continue
+                            if cmd.lower() == 'cd':
+                                os.chdir(command_split[i + 1])
+                                output = 'Changed directory to %s' % (os.getcwd())
+                                await event_channel.send('```\n' + output + '\n```')
+                                return
+                        
                     #Executing the shell command
                     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
 
@@ -95,29 +117,30 @@ def main():
                     try:
                         await client.get_channel(int(CONFIG['config']['history'])).send('``\n' + command + '\n``')
                     except:
-                        await event_channel.send('**[-]** Command history channel not found!')
+                        await event_channel.send(embed=error('Command history channel not found.'))
                         return
 
                     #Handling +2000 chars output
                     if len(output) >= 2000:
-                        await event_channel.send('**[*]** Output is more than 2000 characters long. Please wait while all data has been transferred.')
+                        await event_channel.send(embed=warning('Output is more than 2000 characters long. Please wait while all data is getting transferred.'))
                         for output_piece in [output[i * 1000 : i * 1000 + 1000] for i, _ in enumerate(output[::1000])]:
                             await event_channel.send('```\n' + output_piece + '\n```')
-                        await event_channel.send('**[+]** All data has been transferred.')
+                        await event_channel.send(embed=success('All data has been transferred.'))
 
                     else:
                         if output.strip():
                             await event_channel.send('```\n' + output + '\n```')
                         else:
-                            await event_channel.send('**[*]** No output recieved.')
+                            await event_channel.send(embed=error('No output recieved.'))
 
             except discord.DiscordException:
-                await event_channel.send('**[-]** Terminal channel not found!')
+                await event_channel.send(embed=error('Terminal channel not found.'))
 
         except Exception as e:
-            await event_channel.send('**[-]** An error occurred: %s' % (e))
+            await event_channel.send(embed=error('An error occurred: %s' % (e)))
             exit()
 
+    #Making the bot run
     client.run(CONFIG['config']['token'])
 
 if __name__ == '__main__':
