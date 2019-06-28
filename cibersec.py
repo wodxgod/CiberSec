@@ -1,7 +1,7 @@
 #Developed by wodx @ 26-06-2019
 import discord, subprocess, json, os, textwrap
 
-#These commands are blacklisted, as they're pretty useless in this project.
+#These commands are blacklisted, as they're pretty useless in this project. More commands can be added
 BLACKLISTED_COMMANDS = [
     'nano', 
     'leafpad',
@@ -52,11 +52,6 @@ def main():
         print('Version: 1.1')
         print('Made for Discord Hack Week.')
         await client.user.edit(username='CiberSec')
-
-    @client.event
-    async def on_member_join(member):
-        if member.user == client.user:
-            print('test')
 
     #Message event
     @client.event
