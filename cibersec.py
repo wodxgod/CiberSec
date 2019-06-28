@@ -32,7 +32,7 @@ def print_banner():
     print ('''
             ╔═╗╦╔╗ ╔═╗╦═╗  ╔═╗╔═╗╔═╗       { Github: WodXTV }
             ║  ║╠╩╗║╣ ╠╦╝  ╚═╗║╣ ║         { Discord: wodx#0666 }
-            ╚═╝╩╚═╝╚═╝╩╚═  ╚═╝╚═╝╚═╝ v1.4  { Twitter: @WodXOfficial }
+            ╚═╝╩╚═╝╚═╝╩╚═  ╚═╝╚═╝╚═╝ v1.6  { Twitter: @WodXOfficial }
                Cyber Security Bot
       Submission for Discord Hack Week 2019
         ''')
@@ -45,9 +45,9 @@ def main():
         exit()
 
     #OS check
-    #if not os.name == 'posix':
-    #    print('[-] CiberSec has to be run on a Linux machine.')
-    #    exit()
+    if not os.name == 'posix':
+        print('[-] CiberSec has to be run on a Linux machine.')
+        exit()
 
     print('[*] Starting CiberSec bot...')
 
