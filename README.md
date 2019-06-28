@@ -46,9 +46,13 @@ Copy the client ID of the bot you have created, and paste [this link](https://di
 # Running the bot
 I recommend you running the bot on a penetration testing Linux distribution like **Kali Linux** or **Parrot OS**, as they have a lot of pre-installed penetration testing/hacking tools installed.
 
-1. Edit the config in ``./config/config.json``
+1. Create two text channels named 'Terminal' and 'Command-History'
 
-2. Start the bot via ``$ python3 cibersec.py``
+2. Edit the config in ``./config/config.json``
+
+3. Start the bot via ``$ python3 cibersec.py``
+
+4. Create a new role named 'CiberSec User' and assign the role.
 
 # Work in progress
 * Auto create category named 'CiberSec'
