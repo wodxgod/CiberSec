@@ -1,5 +1,5 @@
 #Developed by wodx @ 26-06-2019
-import discord, subprocess, json, os, textwrap
+import discord, subprocess, json, os, textwrap, time
 
 #These commands are blacklisted, as they're pretty useless in this project.
 BLACKLISTED_COMMANDS = [
@@ -12,9 +12,9 @@ BLACKLISTED_COMMANDS = [
 #Operators which are used to run multiple bash commands at once.
 OPERATORS = [';', '&&', '||']
 
-last_process = None
-
 CONFIG = json.loads(open('config/config.json').read())
+
+last_process = None
 
 def error(message):
     return discord.Embed(title='**ERROR**', description=message, colour=discord.Colour.red())
@@ -24,6 +24,9 @@ def warning(message):
 
 def success(message):
     return discord.Embed(title='**SUCCESS**', description=message, colour=discord.Colour.green())
+
+def command_history(command):
+    return discord.Embed(title='**%s**' % (time.strftime('%H:%M:%S')), description=command, colour=discord.Colour.blue())
 
 def print_banner():
     print ('''
@@ -42,9 +45,9 @@ def main():
         exit()
 
     #OS check
-    if not os.name == 'posix':
-        print('[-] CiberSec has to be run on a Linux machine.')
-        exit()
+    #if not os.name == 'posix':
+    #    print('[-] CiberSec has to be run on a Linux machine.')
+    #    exit()
 
     print('[*] Starting CiberSec bot...')
 
@@ -54,21 +57,9 @@ def main():
     #Ready event
     @client.event
     async def on_ready():
-        print('[+] CiberSec is ready to use.')
-        print('CiberSec - Cyber security bot')
-        print('By: wodx')
-        print('Version: 1.1')
-        print('Made for Discord Hack Week.')
-        await client.user.edit(username='CiberSec')
-
-    @client.event
-    async def on_member_join(member):
-        if member.user == client.user:
-            print('test')
-
         #Printing banner of CiberSec
         print_banner()
-        
+
         print('[+] CiberSec is ready to use.')
 
         await client.change_presence(activity=discord.Game('Discord Hack Week 2019'))
@@ -118,7 +109,7 @@ def main():
 
             #Clear command
             if 'clear' in command.lower():
-                if command.lower() == 'clear history':
+                if 'clear history' in command.lower():
                     await client.get_channel(int(CONFIG['config']['history'])).purge(limit=1000)
                     await event_channel.send(embed=success('Command history has been cleared.'))
                 else:
@@ -135,7 +126,7 @@ def main():
                     if cmd.lower() == 'cd':
                         os.chdir(command_split[i + 1])
                         output = 'Changed directory to %s' % (os.getcwd())
-                        await event_channel.send('```\n' + output + '\n```')
+                        await event_channel.send('```\n%s\n```' % (output))
                         return
             
             #Cancel command
@@ -150,14 +141,14 @@ def main():
                             
             #Executing the shell command
             process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+            last_process = process
 
             #Command output
-            output = process.stdout.read() + process.stderr.read()
-            output = output.decode()
+            output = (process.stdout.read() + process.stderr.read()).decode()
 
             #Adding command to history
             try:
-                await client.get_channel(int(CONFIG['config']['history'])).send('``\n' + command + '\n``')
+                await client.get_channel(int(CONFIG['config']['history'])).send(embed=command_history('`\n%s\n`' % (command)))
             except:
                 await event_channel.send(embed=error('Command history channel not found.'))
                 return
@@ -167,16 +158,14 @@ def main():
                 async with event_channel.typing():
                     await event_channel.send(embed=warning('Output is more than 2000 characters long. Please wait while all data is getting transferred.'))
                     for output_piece in [output[i * 1000 : i * 1000 + 1000] for i, _ in enumerate(output[::1000])]:
-                        await event_channel.send('```\n' + output_piece + '\n```')
+                        await event_channel.send('```\n%s\n```' % (output_piece))
                     await event_channel.send(embed=success('All data has been transferred.'))
+                    return
 
+            if output.strip():
+                await event_channel.send('```\n%s\n```' % (output))
             else:
-                if output.strip():
-                    await event_channel.send('```\n' + output + '\n```')
-                else:
-                    await event_channel.send(embed=error('No output recieved.'))
-                    
-            last_process = process
+                await event_channel.send(embed=error('No output recieved.'))
 
         except Exception as e:
             await event_channel.send(embed=error('An error occurred: %s' % (e)))
