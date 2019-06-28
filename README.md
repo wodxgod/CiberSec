@@ -1,4 +1,4 @@
-# CiberSec Discord Bot
+# CiberSec Discord Bot - Discord Hack Week 2019
 ![alt text](https://github.com/WodxTV/CiberSec/blob/master/resources/CyberSec-logo-transparent.png)
 
 **CiberSec** is a simple bot that is mainly focused on cyber security. The bot works like a command shell - You simply type in a Linux shell command, and the bot will return the output from the executed command.
@@ -60,6 +60,3 @@ I recommend you running the bot on a penetration testing Linux distribution like
 * Github: [WodXTV](https://github.com/wodxtv)
 * Discord: [wodx#0666](http://discordapp.com)
 * Twitter: [@wodxofficial](https://twitter.com/wodxofficial)
-
-![alt text](https://cdn-images-1.medium.com/max/2600/1*lh6NS8hx0pu5mlZeSqnu5w.jpeg)
-Discord Hack Week 2019 Artwork. *[Source](https://blog.discordapp.com/discord-community-hack-week-build-and-create-alongside-us-6b2a7b7bba33)*
