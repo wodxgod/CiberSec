@@ -1,8 +1,11 @@
-# Discord Hack Week Productivity Bot Submission
-![alt text](https://cdn-images-1.medium.com/max/2600/1*lh6NS8hx0pu5mlZeSqnu5w.jpeg)
-*[Source](https://blog.discordapp.com/discord-community-hack-week-build-and-create-alongside-us-6b2a7b7bba33)*
+<h1 align="center">CiberSec Discord Bot - Discord Hack Week 2019</h1>
+
+![alt text](https://github.com/WodxTV/CiberSec/blob/master/resources/CyberSec-logo-transparent.png)
+*Logo designed and made by WodX - Made in panic.*
 
 **CiberSec** is a simple bot that is mainly focused on cyber security. The bot works like a command shell - You simply type in a Linux shell command, and the bot will return the output from the executed command.
+
+If I had more time, I'd develop something more advanced than a built-in command shell for Discord servers.
 
 # Installation
 In order to clone GitHub repositories, it's necessary to install git.
@@ -52,12 +55,10 @@ I recommend you running the bot on a penetration testing Linux distribution like
 
 3. Start the bot via ``$ python3 cibersec.py``
 
-4. Create a new role named 'CiberSec User' and assign the role.
+4. Create a new role named 'CiberSec User' and assign the role to users who should be able to use the bot
 
 # Developer
 **WodX**
 * Github: [WodXTV](https://github.com/wodxtv)
 * Discord: [wodx#0666](http://discordapp.com)
 * Twitter: [@wodxofficial](https://twitter.com/wodxofficial)
-
-**wodx@root:\~/CiberSec:~$** echo *If I had more time, I'd develop something more advanced than a built-in command shell for Discord servers.* > something.txt
