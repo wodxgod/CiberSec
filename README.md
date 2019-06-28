@@ -57,10 +57,8 @@ I recommend you running the bot on a penetration testing Linux distribution like
 * Auto set permissions for 'CiberSec' category (private channel for 'CiberSec' role only)
 * Handling changing/'animated' outputs
 * Design a logo for the bot
-* Create argument(s) for 'clear' command. E.g. 'clear history' to clear the command history
 * Add rich presence for the bot
 * Create console menu (Start bot, view repository, show credits etc.)
-* (Built in tools)
 
 # Developer
 **WodX**
