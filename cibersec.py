@@ -129,14 +129,19 @@ def main():
                         output = 'Changed directory to %s' % (os.getcwd())
                         await event_channel.send('```\n' + output + '\n```')
                         return
-                        
+            
+            #Cancel command
+            if command.lower() == 'cancel':
+                if last_process:
+                    last_process.kill()
+                    last_process = None
+                    await event_channel.send(embed=success('Process canceled.'))
+                else:
+                    await event_channel.send(embed=warning('Not processes are running.'))
+                return
+                            
             #Executing the shell command
             process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-                    
-            #Cancel command
-            if command.lower() == 'cancel' and last_process:
-                last_process.kill()
-                await event_channel.send(embed=success('Process canceled.'))
 
             #Command output
             output = process.stdout.read() + process.stderr.read()
@@ -162,6 +167,7 @@ def main():
                     await event_channel.send('```\n' + output + '\n```')
                 else:
                     await event_channel.send(embed=error('No output recieved.'))
+                    
             last_process = process
 
         except Exception as e:
