@@ -1,7 +1,7 @@
 #Developed by wodx @ 26-06-2019
 import discord, subprocess, json, os, textwrap, time
 
-#These commands are blacklisted, as they're pretty useless in this project.
+#These commands are blacklisted, as they're pretty useless in this project. More can be added.
 BLACKLISTED_COMMANDS = [
     'nano', 
     'leafpad',
@@ -32,7 +32,7 @@ def print_banner():
     print ('''
             ╔═╗╦╔╗ ╔═╗╦═╗  ╔═╗╔═╗╔═╗       { Github: WodXTV }
             ║  ║╠╩╗║╣ ╠╦╝  ╚═╗║╣ ║         { Discord: wodx#0666 }
-            ╚═╝╩╚═╝╚═╝╩╚═  ╚═╝╚═╝╚═╝ v1.4  { Twitter: @WodXOfficial }
+            ╚═╝╩╚═╝╚═╝╩╚═  ╚═╝╚═╝╚═╝ v1.6  { Twitter: @WodXOfficial }
                Cyber Security Bot
       Submission for Discord Hack Week 2019
         ''')
@@ -162,6 +162,7 @@ def main():
                     await event_channel.send(embed=success('All data has been transferred.'))
                     return
 
+            #Returning the output
             if output.strip():
                 await event_channel.send('```\n%s\n```' % (output))
             else:
