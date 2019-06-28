@@ -1,7 +1,7 @@
 <h1 align="center">CiberSec Discord Bot - Discord Hack Week 2019</h1>
 
 ![alt text](https://github.com/WodxTV/CiberSec/blob/master/resources/CyberSec-logo-transparent.png)
-*Logo designed and made by WodX - Made in panic.
+*Logo designed and made by WodX - Made in panic.*
 
 **CiberSec** is a simple bot that is mainly focused on cyber security. The bot works like a command shell - You simply type in a Linux shell command, and the bot will return the output from the executed command.
 
