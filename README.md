@@ -1,5 +1,5 @@
 <p align="center">
-  # CiberSec Discord Bot - Discord Hack Week 2019
+  <h1> CiberSec Discord Bot - Discord Hack Week 2019</h1>
 </p>
 ![alt text](https://github.com/WodxTV/CiberSec/blob/master/resources/CyberSec-logo-transparent.png)
 
