@@ -60,5 +60,5 @@ I recommend you running the bot on a penetration testing Linux distribution like
 # Developer
 **WodX**
 * Github: [WodXTV](https://github.com/wodxtv)
-* Discord: [wodx#0666](http://discordapp.com)
-* Twitter: [@wodxofficial](https://twitter.com/wodxofficial)
+* Discord: [wodx#6724](https://prfl.es/profile/621044372951269417)
+* Twitter: [@wodsex](https://twitter.com/wodxsex)
