@@ -1,6 +1,6 @@
 #Developed by wodx @ 26-06-2019
 import discord, subprocess, json, os, textwrap, time
-
+from discord.ext import commands
 #These commands are blacklisted, as they're pretty useless in this project. More can be added.
 BLACKLISTED_COMMANDS = [
     'nano', 
@@ -171,6 +171,22 @@ def main():
         except Exception as e:
             await event_channel.send(embed=error('An error occurred: %s' % (e)))
             exit()
+    @client.command()
+    @client.has_any_role('cibersec user')
+    async def top_role(ctx,user:discord.Member=None):
+        if not user:
+            user = ctx.author
+        await ctx.send(f'The top role for {user.display_name} is {user.top_role.name}')
+    
+    
+    @client.commmand()
+    @commands.guild_only()
+    @client.has_any_role('cibersec user')
+    async def joined(ctx,user:discord.Member=None):
+        """Says when a member joined."""
+        if not user:
+            user = ctx.author
+        await ctx.send(f'{member.display_name} joined on {member.joined_at}')
 
     #Making the bot run
     client.run(CONFIG['config']['token'])
